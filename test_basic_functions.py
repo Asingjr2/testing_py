@@ -1,11 +1,11 @@
 """Practice with basic testing functionality.
 
 Run testing in cmd line with python -m unittest test_file.py.
-Can run directly with __main reference below. 
+Can run directly with __main reference below.
+Additional information in docs: https://docs.python.org/3.6/library/unittest.html#organizing-tests.
 """
 import unittest
 from unittest import TestCase
-from basic_class import Human
 from basic_functions import (
     add,
     minus,
@@ -17,8 +17,20 @@ from basic_functions import (
 
 
 # Basic testing class
-class TestBasicFunctions(TestCase):
+class BasicFunctionsTestCase(TestCase):
+    """Testing basic math functions and errors within functions.
+    
+    Structures matches docs with new setup and teardown used for each test...shown through print statements.
+    Factory boy does testing using built in python build, save, and delete functions.
+    """
+    def setUp(self):
+        print("setting up")
+
+    def tearDown(self):
+        print("tearing down")
+
     def test_add(self):
+        print("starting test add")
         self.assertEqual(add(10,5), 15)
         self.assertEqual(add(-5,5), 0)
         self.assertEqual(add(-10,0), -10)
@@ -39,11 +51,23 @@ class TestBasicFunctions(TestCase):
         self.assertEqual(divide(-9,3), -3)
         self.assertEqual(divide(-10,4), -2.5)
 
+        # Way to check value errors by adding arguments of error type, function name, function arguments
+        self.assertRaises(ValueError, divide, 190,0)
+
+        # Another way to check errors
+        with self.assertRaises(ValueError):
+            divide(10, 0)
+
     def test_floor_divide(self):
         """Using floor divide to round initial result down."""
         self.assertEqual(floor_divide(10,5), 2)
         self.assertEqual(floor_divide(-9,3), -3)
         self.assertEqual(floor_divide(5, 2), 2)
+ 
+        self.assertRaises(ValueError, floor_divide, 190,0)
+
+        with self.assertRaises(ValueError):
+            floor_divide(10, 0)
 
     def test_mod(self):
         self.assertEqual(mod(10,5), 0)
@@ -51,17 +75,5 @@ class TestBasicFunctions(TestCase):
         self.assertEqual(mod(6,2), 0)
 
 
-# Testing for class property existence
-class HumanTestCase(TestCase):
-    def test_human(self):
-        joe = Human("Joe", "28", "male")
-
-        self.assertIsNotNone(joe.name)
-        self.assertIsNotNone(joe.age)
-        self.assertIsNotNone(joe.gender)
-
-
-
-# Below allows file to be tested directly like running through -m
 if __name__ == "__main__":
     unittest.main()

@@ -7,4 +7,9 @@ class Human(object):
         self.age = age
         self.gender = gender
 
+    @property
+    def bio(self):
+        return "My name is {} and I am {}.".format(self.name, self.age)
+
+
 
