@@ -10,7 +10,9 @@ from basic_functions import (
     add,
     minus,
     multi,
-    mod, 
+    divide, 
+    floor_divide,
+    mod
     )
 
 
@@ -31,6 +33,17 @@ class TestBasicFunctions(TestCase):
         self.assertEqual(multi(10,5), 50)
         self.assertEqual(multi(-5,5), -25)
         self.assertEqual(multi(-10,0), 0)
+
+    def test_divide(self):
+        self.assertEqual(divide(10,5), 2)
+        self.assertEqual(divide(-9,3), -3)
+        self.assertEqual(divide(-10,4), -2.5)
+
+    def test_floor_divide(self):
+        """Using floor divide to round initial result down."""
+        self.assertEqual(floor_divide(10,5), 2)
+        self.assertEqual(floor_divide(-9,3), -3)
+        self.assertEqual(floor_divide(5, 2), 2)
 
     def test_mod(self):
         self.assertEqual(mod(10,5), 0)

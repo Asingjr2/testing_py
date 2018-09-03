@@ -9,6 +9,12 @@ def minus(x, y):
 def multi(x, y):
     return x * y
 
+def divide(x, y):
+    return x / y
+
+def floor_divide(x,y):
+    return x // y
+
 def mod(x,y):
     return x % y
 
