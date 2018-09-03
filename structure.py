@@ -1,10 +1,10 @@
-"""Program to handle basic testing with proper structure."""
+"""Program to handle basic testing with proper structure.
+
+Structure matches docs with new setup and teardown used for each test...shown through print statements.
+Factory boy does testing using built in python build, save, and delete functions.
+"""
 import unittest
 from unittest import TestCase
-
-
-def write(quote):
-    print("Nice quote by {}".format(quote.author))
 
 
 class Quote(object):
@@ -22,7 +22,18 @@ class QuoteTestCase(TestCase):
     """Testing quote class attributes and method.  
     
     Structure requires formal setup and teardown.
+    Can also use classmethods that run once before any tests and once when all are done
     """
+
+    @classmethod
+    def setUpClass(cls):
+        """Printing to show that code happens only once at test process start."""
+        print("setUp class")
+    
+    @classmethod
+    def tearDownClass(cls):
+        """Printing to show that code happens only once at test process end."""
+        print("tearDown class")
 
     def setUp(self):
         """Occurs before every test is run.  Printing to demonstrate."""
@@ -34,9 +45,12 @@ class QuoteTestCase(TestCase):
         print("tearing down")
 
     def test_quote(self):
-        print("performing main tests")
+        print("performing main test 1")
         self.assertIsNotNone(self.words.saying)
         self.assertIsNotNone(self.words.author)
+
+    def test_quote2(self):
+        print("performing main test 2")
         self.assertEqual(self.words.description, "{} once said {}".format(self.words.author, self.words.saying))
 
 

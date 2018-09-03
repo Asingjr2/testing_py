@@ -9,11 +9,7 @@ from basic_class import Human
 
 # Testing for class property existence
 class HumanTestCase(TestCase):
-    """Testing human class attributes and functions.
-    
-    Structures matches docs with new setup and teardown used for each test...shown through print statements.
-    Factory boy does testing using built in python build, save, and delete functions.
-    """
+    """Testing human class attributes and functions."""
     def setUp(self):
         print("setting up")
         self.joe = Human("Joe", "28", "male")

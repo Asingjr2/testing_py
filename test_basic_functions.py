@@ -18,11 +18,7 @@ from basic_functions import (
 
 # Basic testing class
 class BasicFunctionsTestCase(TestCase):
-    """Testing basic math functions and errors within functions.
-    
-    Structures matches docs with new setup and teardown used for each test...shown through print statements.
-    Factory boy does testing using built in python build, save, and delete functions.
-    """
+    """Testing basic math functions and errors within functions."""
     def setUp(self):
         print("setting up")
 
