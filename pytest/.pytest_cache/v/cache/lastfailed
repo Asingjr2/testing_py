@@ -1,0 +1,3 @@
+{
+  "test_with_pytest.py::test_raises_exception_on_non_string_arguments": true
+}

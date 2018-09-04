@@ -1,0 +1,9 @@
+[
+  "test_basic_class.py::HumanTestCase::test_human",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_add",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_divide",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_floor_divide",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_minus",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_mod",
+  "test_basic_functions.py::BasicFunctionsTestCase::test_multi"
+]

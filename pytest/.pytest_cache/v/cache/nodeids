@@ -1,0 +1,4 @@
+[
+  "test_with_pytest.py::test_capital",
+  "test_with_pytest.py::test_raises_non_string_error"
+]
